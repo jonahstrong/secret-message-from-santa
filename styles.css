@@ -18,7 +18,7 @@
 
 body {
   font-family: 'Roboto Slab', Georgia, serif;
-  background: linear-gradient(180deg, #eef6fb 0%, #ffffff 60%);
+  background: url('assets/images/santa.jpg') center center / cover no-repeat fixed;
   margin: 0;
   padding: 36px;
   display: flex;
