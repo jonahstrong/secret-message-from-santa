@@ -246,3 +246,40 @@ function draw() {
 
 // Start animation
 draw();
+
+// ========================================
+// Background Music & Volume Overlay
+// ========================================
+
+const bgMusic = document.getElementById('bgMusic');
+const volumeOverlay = document.getElementById('volumeOverlay');
+
+// Show volume overlay and play music on page load
+window.addEventListener('load', () => {
+  // Try to auto-play music (might be blocked by browser)
+  const playPromise = bgMusic.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(error => {
+      // Auto-play was prevented, user interaction required
+      console.log('Auto-play prevented, waiting for user interaction');
+    });
+  }
+
+  // Show overlay for 3 seconds
+  setTimeout(() => {
+    volumeOverlay.style.animation = 'fadeIn 0.5s ease reverse';
+    setTimeout(() => {
+      volumeOverlay.style.display = 'none';
+    }, 500);
+  }, 3000);
+});
+
+// Click overlay to dismiss and ensure music plays
+volumeOverlay.addEventListener('click', () => {
+  bgMusic.play().catch(e => console.log('Playback error:', e));
+  volumeOverlay.style.animation = 'fadeIn 0.5s ease reverse';
+  setTimeout(() => {
+    volumeOverlay.style.display = 'none';
+  }, 500);
+});
