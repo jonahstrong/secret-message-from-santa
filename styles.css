@@ -137,7 +137,7 @@ p.lead {
 .token.revealed {
   background: #fff;
   border: 0;
-  color: var(--accent2);
+  color: #628259;
   box-shadow: 0 6px 18px rgba(31, 90, 107, 0.06);
   font-size: 18px;
 }
