@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Secret Message from Santa</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Roboto+Slab:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <header>
+        <div class="logo"><span>S</span></div>
+        <div>
+          <h1>Secret Message from Santa</h1>
+          <p class="lead">Click or tap numbers to reveal letters. Solve the whole puzzle to see Santa's special note.</p>
+        </div>
+      </header>
+      <div class="puzzle-area">
+        <div class="lines" id="lines"></div>
+        <div class="controls">
+          <button id="revealAll">Reveal All</button>
+          <button class="secondary" id="resetBtn">Reset</button>
+          <button class="secondary" id="hintBtn">Hint</button>
+        </div>
+        <div class="hint" id="hintText">Tip: Hover a row and press number keys (1–9, 0 for 10) to reveal quickly.</div>
+        <footer>Hosted on GitHub Pages – share the link!</footer>
+      </div>
+    </div>
+    <aside class="panel side">
+      <h3 style="margin:0">Santa's Decoder Ring</h3>
+      <p style="margin:6px 0 8px;color:#42585f">Number → Letter mapping (North Pole style)</p>
+      <div class="decoder-grid" id="decoderGrid"></div>
+      <div style="margin-top:12px">
+        <strong>Features included</strong>
+        <ul style="color:#44595a;margin:8px 0 0;padding-left:18px">
+          <li>Festive paper texture + snowy fonts</li>
+          <li>Snow animation & confetti win</li>
+          <li>Flip sound on reveal</li>
+          <li>Clean HTML/CSS/JS structure</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- solved modal -->
+  <div id="modal" style="display:none" class="modal">
+    <div class="modal-card">
+      <h2>Santa</h2>
+      <p id="modalText" style="font-size:20px;margin:8px 0 0">Ho ho ho! Merry Christmas from the North Pole!</p>
+      <button id="closeModal" class="close-btn">Close</button>
+    </div>
+  </div>
+
+  <canvas class="snow" id="snowCanvas"></canvas>
+  <audio id="flipSound" src="data:audio/wav;base64,UklGRjQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
