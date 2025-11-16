@@ -256,15 +256,12 @@ const volumeOverlay = document.getElementById('volumeOverlay');
 
 // Show volume overlay and play music on page load
 window.addEventListener('load', () => {
-  // Try to auto-play music (might be blocked by browser)
-  const playPromise = bgMusic.play();
-
-  if (playPromise !== undefined) {
-    playPromise.catch(error => {
-      // Auto-play was prevented, user interaction required
-      console.log('Auto-play prevented, waiting for user interaction');
+  // Auto-play music after 2 second delay
+  setTimeout(() => {
+    bgMusic.play().catch(error => {
+      console.log('Auto-play prevented:', error);
     });
-  }
+  }, 2000);
 
   // Show overlay for 3 seconds
   setTimeout(() => {
