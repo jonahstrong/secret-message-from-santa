@@ -20,3 +20,7 @@ Add css to improve mobile support
 
 * TODO Modify
 Change hex code
+
+* git commands
+git add . & git commit -m "{commit}" & git push origin main
+2025-11-16 04:49: git add . & git commit -m "Added mobile support and favicon and stamp" & git push origin main

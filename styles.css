@@ -77,6 +77,30 @@ header {
   object-fit: contain;
 }
 
+/* ========================================
+   New Stamp Styling (Uncomment to use)
+   Adjust width, height, position, etc.
+   ======================================== */
+/*
+.new-stamp {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 120px;
+  height: 120px;
+  z-index: 5;
+  transform: rotate(-15deg);
+  opacity: 0.9;
+}
+
+.new-stamp img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+*/
+
 h1 {
   font-size: 20px;
   margin: 0;
@@ -127,11 +151,18 @@ p.lead {
   cursor: pointer;
   user-select: none;
   transition: transform .18s ease, box-shadow .18s;
+  -webkit-tap-highlight-color: rgba(177, 18, 38, 0.1);
+  touch-action: manipulation;
 }
 
 .token:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.token:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .token.revealed {
@@ -160,10 +191,16 @@ button {
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s ease;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  touch-action: manipulation;
 }
 
 button:hover {
   background: #9a0f1f;
+}
+
+button:active {
+  transform: scale(0.98);
 }
 
 button.secondary {
@@ -378,5 +415,183 @@ footer {
 @media (max-width: 860px) {
   .wrap {
     grid-template-columns: 1fr;
+  }
+
+  .side {
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 16px;
+  }
+
+  .wrap {
+    max-width: 100%;
+    gap: 16px;
+  }
+
+  .panel {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  header {
+    gap: 12px;
+  }
+
+  .logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  p.lead {
+    font-size: 14px;
+    margin: 4px 0 12px;
+  }
+
+  .puzzle-area {
+    padding: 14px;
+  }
+
+  .lines {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .line {
+    gap: 6px;
+  }
+
+  .token {
+    min-width: 40px;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .token.revealed {
+    font-size: 16px;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  button {
+    padding: 9px 12px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .hint {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  .side {
+    padding: 16px;
+  }
+
+  .side h3 {
+    font-size: 16px;
+  }
+
+  .side p {
+    font-size: 13px;
+  }
+
+  .decoder-grid {
+    gap: 6px;
+  }
+
+  .decoder-card {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .modal-card {
+    padding: 24px 20px;
+    width: 94%;
+  }
+
+  .modal-card h2 {
+    font-size: 36px;
+  }
+
+  .modal-card p {
+    font-size: 16px;
+  }
+
+  .volume-card {
+    padding: 32px 28px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .volume-card h2 {
+    font-size: 40px;
+  }
+
+  .volume-card p {
+    font-size: 18px;
+  }
+
+  .volume-card .snowflake {
+    font-size: 36px;
+  }
+
+  .volume-card .snowflake:first-child {
+    top: -18px;
+    left: -18px;
+  }
+
+  .volume-card .snowflake:last-child {
+    bottom: -18px;
+    right: -18px;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    padding: 12px;
+  }
+
+  .token {
+    min-width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .token.revealed {
+    font-size: 15px;
+  }
+
+  .line {
+    gap: 5px;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  .volume-card {
+    padding: 24px 20px;
+  }
+
+  .volume-card h2 {
+    font-size: 32px;
+  }
+
+  .volume-card p {
+    font-size: 16px;
   }
 }
