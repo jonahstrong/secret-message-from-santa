@@ -28,3 +28,4 @@ git add . & git commit -m "{commit}" & git push origin main
 * TODOS 11:00 p.m. Nov 16 2025
 
 * TODO Jonah will create stamps & layout
+make moveable stamps
