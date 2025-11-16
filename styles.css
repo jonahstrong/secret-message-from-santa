@@ -16,11 +16,17 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+  overflow-y: auto;
+}
+
 body {
   font-family: 'Roboto Slab', Georgia, serif;
-  background: url('./assets/images/santa.jpg') center center / cover no-repeat fixed;
+  background: url('assets/images/santa.jpg') center center / cover no-repeat fixed;
   margin: 0;
   padding: 36px;
+  min-height: 100%;
   display: flex;
   justify-content: center;
 }
