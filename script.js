@@ -272,11 +272,11 @@ window.addEventListener('load', () => {
   }, 3000);
 });
 
-// Click overlay to dismiss and ensure music plays
-volumeOverlay.addEventListener('click', () => {
-  bgMusic.play().catch(e => console.log('Playback error:', e));
-  volumeOverlay.style.animation = 'fadeIn 0.5s ease reverse';
-  setTimeout(() => {
-    volumeOverlay.style.display = 'none';
-  }, 500);
-});
+// // Click overlay to dismiss and ensure music plays
+// volumeOverlay.addEventListener('click', () => {
+//   bgMusic.play().catch(e => console.log('Playback error:', e));
+//   volumeOverlay.style.animation = 'fadeIn 0.5s ease reverse';
+//   setTimeout(() => {
+//     volumeOverlay.style.display = 'none';
+//   }, 500);
+// });

@@ -24,3 +24,7 @@ Change hex code
 * git commands
 git add . & git commit -m "{commit}" & git push origin main
 2025-11-16 04:49: git add . & git commit -m "Added mobile support and favicon and stamp" & git push origin main
+
+* TODOS 11:00 p.m. Nov 16 2025
+
+* TODO Jonah will create stamps & layout

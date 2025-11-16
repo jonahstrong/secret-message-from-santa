@@ -77,13 +77,9 @@ header {
   object-fit: contain;
 }
 
-/* ========================================
-   New Stamp Styling (Uncomment to use)
-   Adjust width, height, position, etc.
-   ======================================== */
-/*
 .new-stamp {
-  position: absolute;
+  /* position: absolute; */
+  position: relative;
   top: 20px;
   right: 20px;
   width: 120px;
