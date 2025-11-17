@@ -79,7 +79,8 @@ header {
   object-fit: contain;
 }
 
-.new-stamp {
+/* Decorative Stamps */
+.stamp_0 {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -90,7 +91,97 @@ header {
   opacity: 0.9;
 }
 
-.new-stamp img {
+.stamp_0 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.stamp_1 {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  z-index: 5;
+  transform: rotate(12deg);
+  opacity: 0.85;
+}
+
+.stamp_1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.stamp_2 {
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  width: 90px;
+  height: 90px;
+  z-index: 5;
+  transform: rotate(-8deg);
+  opacity: 0.8;
+}
+
+.stamp_2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.stamp_3 {
+  position: absolute;
+  bottom: 40px;
+  right: 30px;
+  width: 110px;
+  height: 110px;
+  z-index: 5;
+  transform: rotate(18deg);
+  opacity: 0.88;
+}
+
+.stamp_3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.stamp_4 {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  width: 85px;
+  height: 85px;
+  z-index: 5;
+  transform: translateY(-50%) rotate(-20deg);
+  opacity: 0.75;
+}
+
+.stamp_4 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.stamp_5 {
+  position: absolute;
+  top: 45%;
+  right: 15px;
+  width: 95px;
+  height: 95px;
+  z-index: 5;
+  transform: translateY(-50%) rotate(25deg);
+  opacity: 0.82;
+}
+
+.stamp_5 img {
   width: 100%;
   height: 100%;
   object-fit: contain;
