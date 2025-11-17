@@ -52,6 +52,7 @@ body {
   border-radius: 14px;
   padding: 22px;
   box-shadow: 0 14px 40px rgba(16, 22, 28, 0.08);
+  position: relative;
 }
 
 /* ========================================
@@ -61,12 +62,13 @@ header {
   display: flex;
   align-items: center;
   gap: 14px;
+  padding-left: 140px;
 }
 
 .logo {
   width: 72px;
   height: 72px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
@@ -78,10 +80,9 @@ header {
 }
 
 .new-stamp {
-  /* position: absolute; */
-  position: relative;
+  position: absolute;
   top: 20px;
-  right: 20px;
+  left: 20px;
   width: 120px;
   height: 120px;
   z-index: 5;
@@ -95,7 +96,6 @@ header {
   object-fit: contain;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
-*/
 
 h1 {
   font-size: 20px;
