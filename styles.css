@@ -170,24 +170,6 @@ header {
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-.stamp_5 {
-  position: absolute;
-  top: 42%;
-  right: 18px;
-  width: 100px;
-  height: 100px;
-  z-index: 5;
-  transform: rotate(25deg);
-  opacity: 0.85;
-}
-
-.stamp_5 img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
-}
-
 h1 {
   font-size: 20px;
   margin: 0;
