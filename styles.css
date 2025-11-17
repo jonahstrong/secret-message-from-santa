@@ -84,11 +84,11 @@ header {
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   z-index: 5;
   transform: rotate(-15deg);
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .stamp_0 img {
@@ -100,8 +100,8 @@ header {
 
 .stamp_1 {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15%;
+  right: 25px;
   width: 100px;
   height: 100px;
   z-index: 5;
@@ -118,13 +118,13 @@ header {
 
 .stamp_2 {
   position: absolute;
-  bottom: 30px;
-  left: 40px;
-  width: 90px;
-  height: 90px;
+  top: 60%;
+  left: 15px;
+  width: 100px;
+  height: 100px;
   z-index: 5;
   transform: rotate(-8deg);
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .stamp_2 img {
@@ -136,13 +136,13 @@ header {
 
 .stamp_3 {
   position: absolute;
-  bottom: 40px;
-  right: 30px;
-  width: 110px;
-  height: 110px;
+  top: 70%;
+  right: 20px;
+  width: 100px;
+  height: 100px;
   z-index: 5;
   transform: rotate(18deg);
-  opacity: 0.88;
+  opacity: 0.85;
 }
 
 .stamp_3 img {
@@ -154,13 +154,13 @@ header {
 
 .stamp_4 {
   position: absolute;
-  top: 50%;
+  top: 38%;
   left: 10px;
-  width: 85px;
-  height: 85px;
+  width: 100px;
+  height: 100px;
   z-index: 5;
-  transform: translateY(-50%) rotate(-20deg);
-  opacity: 0.75;
+  transform: rotate(-20deg);
+  opacity: 0.85;
 }
 
 .stamp_4 img {
@@ -172,13 +172,13 @@ header {
 
 .stamp_5 {
   position: absolute;
-  top: 45%;
-  right: 15px;
-  width: 95px;
-  height: 95px;
+  top: 42%;
+  right: 18px;
+  width: 100px;
+  height: 100px;
   z-index: 5;
-  transform: translateY(-50%) rotate(25deg);
-  opacity: 0.82;
+  transform: rotate(25deg);
+  opacity: 0.85;
 }
 
 .stamp_5 img {
