@@ -1,4 +1,14 @@
 /* ========================================
+   Custom Fonts
+   ======================================== */
+@font-face {
+  font-family: 'CHRICI';
+  src: url('assets/fonts/CHRICI__.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ========================================
    CSS Variables
    ======================================== */
 :root {
@@ -192,6 +202,7 @@ header {
 }
 
 h1 {
+  font-family: 'CHRICI', 'Roboto Slab', Georgia, serif;
   font-size: 20px;
   margin: 0;
   color: #24323a;
