@@ -104,7 +104,7 @@ header {
 
 /* Stamp 1 - Adjust X and Y position here */
 .stamp_1 {
-  position: absolute;
+  position: fixed;
   top: 18%;        /* Adjust Y position here */
   right: 8%;       /* Adjust X position here */
   width: 100px;
@@ -124,7 +124,7 @@ header {
 
 /* Stamp 2 - Adjust X and Y position here */
 .stamp_2 {
-  position: absolute;
+  position: fixed;
   bottom: 12%;     /* Adjust Y position here */
   left: 15%;       /* Adjust X position here */
   width: 100px;
@@ -144,7 +144,7 @@ header {
 
 /* Stamp 3 - Adjust X and Y position here */
 .stamp_3 {
-  position: absolute;
+  position: fixed;
   bottom: 8%;      /* Adjust Y position here */
   right: 12%;      /* Adjust X position here */
   width: 100px;
@@ -164,7 +164,7 @@ header {
 
 /* Stamp 4 - Adjust X and Y position here */
 .stamp_4 {
-  position: absolute;
+  position: fixed;
   top: 45%;        /* Adjust Y position here */
   left: 5%;        /* Adjust X position here */
   width: 100px;
