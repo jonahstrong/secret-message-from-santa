@@ -203,7 +203,14 @@ header {
 
 h1 {
   font-family: 'CHRICI', 'Roboto Slab', Georgia, serif;
-  font-size: 20px;
+  font-size: 45px;
+  margin: 0;
+  color: #24323a;
+}
+
+h3 {
+  font-family: 'CHRICI', 'Roboto Slab', Georgia, serif;
+  font-size: 30px;
   margin: 0;
   color: #24323a;
 }
