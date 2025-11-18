@@ -29,6 +29,7 @@ body {
   min-height: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 /* ========================================
@@ -80,15 +81,18 @@ header {
 }
 
 /* Decorative Stamps */
+
+/* Stamp 0 - Top left corner of puzzle area */
 .stamp_0 {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 95px;       /* Adjust Y position here */
+  left: -10px;     /* Adjust X position here */
   width: 100px;
   height: 100px;
   z-index: 5;
   transform: rotate(-15deg);
   opacity: 0.85;
+  pointer-events: none;
 }
 
 .stamp_0 img {
@@ -98,15 +102,17 @@ header {
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
+/* Stamp 1 - Adjust X and Y position here */
 .stamp_1 {
   position: absolute;
-  top: 15%;
-  right: 25px;
+  top: 18%;        /* Adjust Y position here */
+  right: 8%;       /* Adjust X position here */
   width: 100px;
   height: 100px;
   z-index: 5;
-  transform: rotate(12deg);
+  transform: rotate(22deg);
   opacity: 0.85;
+  pointer-events: none;
 }
 
 .stamp_1 img {
@@ -116,15 +122,17 @@ header {
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
+/* Stamp 2 - Adjust X and Y position here */
 .stamp_2 {
   position: absolute;
-  top: 60%;
-  left: 15px;
+  bottom: 12%;     /* Adjust Y position here */
+  left: 15%;       /* Adjust X position here */
   width: 100px;
   height: 100px;
   z-index: 5;
   transform: rotate(-8deg);
   opacity: 0.85;
+  pointer-events: none;
 }
 
 .stamp_2 img {
@@ -134,15 +142,17 @@ header {
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
+/* Stamp 3 - Adjust X and Y position here */
 .stamp_3 {
   position: absolute;
-  top: 70%;
-  right: 20px;
+  bottom: 8%;      /* Adjust Y position here */
+  right: 12%;      /* Adjust X position here */
   width: 100px;
   height: 100px;
   z-index: 5;
   transform: rotate(18deg);
   opacity: 0.85;
+  pointer-events: none;
 }
 
 .stamp_3 img {
@@ -152,15 +162,17 @@ header {
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
+/* Stamp 4 - Adjust X and Y position here */
 .stamp_4 {
   position: absolute;
-  top: 38%;
-  left: 10px;
+  top: 45%;        /* Adjust Y position here */
+  left: 5%;        /* Adjust X position here */
   width: 100px;
   height: 100px;
   z-index: 5;
-  transform: rotate(-20deg);
+  transform: rotate(-25deg);
   opacity: 0.85;
+  pointer-events: none;
 }
 
 .stamp_4 img {
