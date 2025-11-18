@@ -9,8 +9,8 @@
 }
 
 @font-face {
-  font-family: 'BodyFont';
-  src: url('assets/fonts/body.ttf') format('truetype');
+  font-family: 'TypewriterRustic';
+  src: url('assets/fonts/TypewriterRusticRNH-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,7 +24,47 @@
   --accent: #b11226;
   --accent2: #1f5a6b;
   --paper: #fbf7ee;
-  --stamp-size: 100px;  /* Change this to adjust all stamp sizes */
+
+  /* ============================================
+     STAMP SIZE CONTROL
+     ============================================
+     Change this single value to resize ALL stamps (0-4) at once
+
+     How it works:
+     - This variable controls both width and height of stamps
+     - All stamps use: width: var(--stamp-size); height: var(--stamp-size);
+     - Smaller values make stamps smaller, larger values make them bigger
+
+     Examples:
+     - --stamp-size: 80px;   -> Small stamps
+     - --stamp-size: 100px;  -> Medium stamps (current default)
+     - --stamp-size: 120px;  -> Large stamps
+     - --stamp-size: 150px;  -> Extra large stamps
+
+     Note: This affects desktop view. Mobile sizes adjust automatically
+     via media queries below (see @media sections)
+  */
+  --stamp-size: 100px;
+
+  /* ============================================
+     WAX SEAL SIZE CONTROL
+     ============================================
+     Change this single value to resize the wax seal
+
+     How it works:
+     - This variable controls both width and height of the wax seal
+     - The wax seal uses: width: var(--seal-size); height: var(--seal-size);
+     - Smaller values make seal smaller, larger values make it bigger
+
+     Examples:
+     - --seal-size: 60px;   -> Small seal
+     - --seal-size: 80px;   -> Medium seal (current default)
+     - --seal-size: 100px;  -> Large seal
+     - --seal-size: 120px;  -> Extra large seal
+
+     Note: The seal stays fixed on screen and doesn't scroll with page
+  */
+  --seal-size: 500px;
 }
 
 /* ========================================
@@ -40,7 +80,7 @@ html {
 }
 
 body {
-  font-family: 'Roboto Slab', Georgia, serif;
+  font-family: 'TypewriterRustic', 'Roboto Slab', Georgia, serif;
   background: url('assets/images/santa.jpg') center center / cover no-repeat fixed;
   margin: 0;
   padding: 36px;
@@ -53,6 +93,12 @@ body {
 /* ========================================
    Layout
    ======================================== */
+/* ============================================
+   TO MOVE ENTIRE PANEL DOWN FROM TOP:
+   - Add/increase margin-top below (e.g., 40px, 60px, 80px, 100px)
+   - This creates space between viewport top and the white panel
+   - Larger number = panel sits lower on page
+   ============================================ */
 .wrap {
   width: 980px;
   max-width: 94%;
@@ -60,6 +106,7 @@ body {
   grid-template-columns: 1fr 360px;
   gap: 22px;
   align-items: start;
+  margin-top: 80px;  /* ADD/INCREASE this to push entire panel down from viewport top */
 }
 
 .panel {
@@ -98,19 +145,43 @@ header {
   object-fit: contain;
 }
 
-/* Decorative Stamps */
+/* ========================================
+   Decorative Stamps
+   ======================================== */
 
-/* Stamp 0 - Top left corner of puzzle area - FREELY POSITIONED */
+/* ============================================
+   STAMP 0 - Top left corner of puzzle area
+   ============================================
+   This stamp is DRAGGABLE - users can click and drag to reposition
+
+   Position Controls:
+   - top: Distance from top of viewport (in pixels or %)
+   - left: Distance from left of viewport (in pixels or %)
+
+   Size Controls:
+   - width/height: Uses --stamp-size variable (change at top of file)
+
+   Visual Controls:
+   - transform: rotate(-15deg) -> Makes stamp tilted (change degree to adjust angle)
+   - opacity: 0.85 -> Makes stamp slightly transparent (0.0 = invisible, 1.0 = solid)
+
+   Examples:
+   - Rotate more: transform: rotate(-30deg);
+   - No rotation: transform: rotate(0deg);
+   - More transparent: opacity: 0.6;
+   - Fully opaque: opacity: 1.0;
+*/
 .stamp_0 {
   position: absolute;
-  top: 200px;      /* Adjust Y position here */
-  left: 3%;        /* Adjust X position here */
-  width: var(--stamp-size);
-  height: var(--stamp-size);
+  top: 200px;      /* Distance from top - adjust to move up/down */
+  left: 3%;        /* Distance from left - adjust to move left/right */
+  width: var(--stamp-size);   /* Controlled by --stamp-size variable above */
+  height: var(--stamp-size);  /* Controlled by --stamp-size variable above */
   z-index: 5;
-  transform: rotate(-15deg);
-  opacity: 0.85;
-  pointer-events: none;
+  transform: rotate(-15deg);  /* Tilt angle - change number to rotate more/less */
+  opacity: 0.85;              /* Transparency - 0.0 to 1.0 */
+  cursor: move;
+  user-select: none;
 }
 
 .stamp_0 img {
@@ -118,6 +189,7 @@ header {
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  pointer-events: none;
 }
 
 /* Stamp 1 - Adjust X and Y position here - DRAGGABLE */
@@ -223,7 +295,7 @@ h3 {
 }
 
 p, p.lead {
-  font-family: 'BodyFont', 'Roboto Slab', Georgia, serif;
+  font-family: 'TypewriterRustic', 'Roboto Slab', Georgia, serif;
   margin: 6px 0 16px;
   color: #42585f;
 }
@@ -231,11 +303,17 @@ p, p.lead {
 /* ========================================
    Puzzle Area
    ======================================== */
+/* ============================================
+   TO MOVE PUZZLE DOWN (give stamp_0 more space):
+   - Increase margin-top below (e.g., 40px, 60px, 80px, 100px)
+   - Larger number = more space above puzzle = stamp more visible
+   ============================================ */
 .puzzle-area {
   background: linear-gradient(180deg, #fffef8, #fbf7ee);
   border-radius: 10px;
   padding: 18px;
   border: 1px solid rgba(0, 0, 0, 0.04);
+  margin-top: 60px;  /* ADD/INCREASE this to push puzzle down and reveal stamp_0 */
 }
 
 .lines {
@@ -263,6 +341,7 @@ p, p.lead {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Roboto Slab', Georgia, serif;  /* Keep original font for tiles */
   font-weight: 700;
   cursor: pointer;
   user-select: none;
@@ -351,6 +430,7 @@ button.secondary:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Roboto Slab', Georgia, serif;  /* Keep original font for decoder */
 }
 
 .decoder-card small {
@@ -515,27 +595,56 @@ button.secondary:hover {
    Misc
    ======================================== */
 .hint {
-  font-family: 'BodyFont', 'Roboto Slab', Georgia, serif;
+  font-family: 'TypewriterRustic', 'Roboto Slab', Georgia, serif;
   margin-top: 10px;
   color: #556b6f;
 }
 
-/* Wax Seal - Fixed at puzzle area corner */
+/* ============================================
+   WAX SEAL - Anchored/Glued to puzzle area
+   ============================================
+   This seal is ANCHORED to the page - it scrolls with the content
+
+   Position Controls:
+   - top: Distance from top of page (scrolls with content)
+   - left: Distance from left of page (scrolls with content)
+   - position: absolute -> Anchored to page, scrolls with content
+
+   Size Controls:
+   - width/height: Uses --seal-size variable (change at top of file)
+   - To resize: Change --seal-size value in :root section above
+
+   Visual Controls:
+   - z-index: 10 -> Appears above stamps (higher = more on top)
+   - filter: drop-shadow() -> Adds shadow for depth
+   - pointer-events: none -> Users can't click on it (passes through to content below)
+
+   Examples:
+   - Move seal up: Decrease top value (e.g., top: 150px;)
+   - Move seal down: Increase top value (e.g., top: 250px;)
+   - Move seal right: Increase left value (e.g., left: 100px;)
+   - Move seal left: Decrease left value (e.g., left: 20px;)
+   - Bigger shadow: filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.4));
+   - No shadow: filter: none;
+
+   Note: This seal is GLUED to the page and scrolls with it.
+   It stays in the same position relative to the puzzle area.
+*/
 .wax-seal {
-  position: fixed;
-  top: 195px;      /* Adjust Y position here */
-  left: 50px;      /* Adjust X position here */
-  width: 80px;
-  height: 80px;
-  z-index: 10;
-  pointer-events: none;
+  position: absolute;           /* Anchored to page - scrolls with content */
+  top: -50px;                   /* Distance from top of page */
+  left: 50px;                   /* Distance from left of page */
+  width: var(--seal-size);      /* Controlled by --seal-size variable above */
+  height: var(--seal-size);     /* Controlled by --seal-size variable above */
+  z-index: 10;                  /* Layer order - higher appears on top */
+  pointer-events: none;         /* Can't be clicked - clicks pass through */
 }
 
 .wax-seal img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.3));
+  object-fit: contain;          /* Keeps image proportions */
+  filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.3));  /* Shadow effect */
 }
 
 footer {
@@ -556,10 +665,15 @@ footer {
     order: -1;
   }
 
-  /* Adjust stamp positions for medium screens */
+  /* ============================================
+     RESPONSIVE: Medium Screens (tablets, half-width windows)
+     These adjustments apply when screen width ≤ 860px
+     ============================================ */
+
+  /* Stamp 0 - Reposition for medium screens to avoid puzzle overlap */
   .stamp_0 {
-    top: 70px;       /* Adjust Y position here */
-    left: -5px;      /* Adjust X position here */
+    top: 150px;      /* Move stamp down slightly */
+    left: 2%;        /* Move stamp closer to left edge */
   }
 
   .stamp_1 {
@@ -720,10 +834,15 @@ footer {
     right: -18px;
   }
 
-  /* Adjust stamp positions for small screens */
+  /* ============================================
+     RESPONSIVE: Small Screens (mobile phones, narrow views)
+     These adjustments apply when screen width ≤ 600px
+     ============================================ */
+
+  /* Stamp 0 - Reposition for small screens */
   .stamp_0 {
-    top: 60px;       /* Adjust Y position here */
-    left: -5px;      /* Adjust X position here */
+    top: 120px;      /* Adjust vertical position for smaller layout */
+    left: 1%;        /* Tighten to edge to save space */
   }
 
   .stamp_1 {
@@ -782,9 +901,15 @@ footer {
     font-size: 16px;
   }
 
-  /* Adjust stamp positions for extra small screens */
+  /* ============================================
+     RESPONSIVE: Extra Small Screens (very small phones)
+     These adjustments apply when screen width ≤ 400px
+     ============================================ */
+
+  /* Stamp 0 - Reposition for extra small screens */
   .stamp_0 {
-    display: none;   /* Hide on very small screens to prevent overlap */
+    top: 100px;      /* Move higher to fit compact layout */
+    left: 1%;        /* Keep tight to edge */
   }
 
   .stamp_1 {
@@ -803,6 +928,7 @@ footer {
   }
 
   .stamp_4 {
-    display: none;   /* Hide on very small screens to prevent overlap */
+    top: 30%;        /* Adjust Y position here */
+    left: 1%;        /* Adjust X position here */
   }
 }

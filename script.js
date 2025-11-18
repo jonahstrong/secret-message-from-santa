@@ -283,10 +283,10 @@ window.addEventListener('load', () => {
 });
 
 // ========================================
-// Draggable Stamps (stamps 1-4)
+// Draggable Stamps (stamps 0-4)
 // ========================================
 
-const draggableStamps = ['.stamp_1', '.stamp_2', '.stamp_3', '.stamp_4'];
+const draggableStamps = ['.stamp_0', '.stamp_1', '.stamp_2', '.stamp_3', '.stamp_4'];
 
 draggableStamps.forEach(selector => {
   const stamp = document.querySelector(selector);
