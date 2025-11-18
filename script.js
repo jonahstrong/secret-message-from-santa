@@ -254,32 +254,29 @@ draw();
 const bgMusic = document.getElementById('bgMusic');
 const volumeOverlay = document.getElementById('volumeOverlay');
 
-// Show volume overlay and play music on page load
+// Show volume overlay - Click to start music
 window.addEventListener('load', () => {
-  // Unmute and ensure music plays after 1.5 second delay
-  setTimeout(() => {
-    bgMusic.muted = false;
-    bgMusic.play().catch(error => {
-      console.log('Auto-play prevented by browser:', error);
-      // Fallback: try playing muted first, then unmute
-      bgMusic.muted = true;
-      bgMusic.play().then(() => {
-        setTimeout(() => {
-          bgMusic.muted = false;
-        }, 100);
-      }).catch(e => {
-        console.log('Playback failed:', e);
-      });
-    });
-  }, 1500);
+  // Overlay stays visible until user clicks
+  // No auto-play - user must interact to start music
 
-  // Hide overlay after 3 seconds regardless of music playback
+  // Scroll to top to ensure wax seal is visible
+  window.scrollTo(0, 0);
+});
+
+// Click overlay to start music and enter site
+volumeOverlay.addEventListener('click', () => {
+  // Start music playback
+  bgMusic.play().then(() => {
+    console.log('Music started successfully');
+  }).catch(error => {
+    console.log('Playback error:', error);
+  });
+
+  // Hide overlay with animation
+  volumeOverlay.style.animation = 'fadeIn 0.5s ease reverse';
   setTimeout(() => {
-    volumeOverlay.style.animation = 'fadeIn 0.5s ease reverse';
-    setTimeout(() => {
-      volumeOverlay.style.display = 'none';
-    }, 500);
-  }, 3000);
+    volumeOverlay.style.display = 'none';
+  }, 500);
 });
 
 // ========================================

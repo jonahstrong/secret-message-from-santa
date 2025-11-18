@@ -44,7 +44,7 @@
      Note: This affects desktop view. Mobile sizes adjust automatically
      via media queries below (see @media sections)
   */
-  --stamp-size: 100px;
+  --stamp-size: 120px;
 
   /* ============================================
      WAX SEAL SIZE CONTROL
@@ -64,7 +64,7 @@
 
      Note: The seal stays fixed on screen and doesn't scroll with page
   */
-  --seal-size: 500px;
+  --seal-size: 475px;
 }
 
 /* ========================================
@@ -106,7 +106,7 @@ body {
   grid-template-columns: 1fr 360px;
   gap: 22px;
   align-items: start;
-  margin-top: 80px;  /* ADD/INCREASE this to push entire panel down from viewport top */
+  margin-top: 40px;  /* Reduced from 80px - centers panel better with wax seal visible */
 }
 
 .panel {
@@ -116,7 +116,7 @@ body {
   background-position: center;
   background-blend-mode: multiply;
   border-radius: 14px;
-  padding: 22px;
+  padding: 16px;  /* Reduced from 22px - makes panel more compact */
   box-shadow: 0 14px 40px rgba(16, 22, 28, 0.08);
   position: relative;
 }
@@ -177,7 +177,7 @@ header {
   left: 3%;        /* Distance from left - adjust to move left/right */
   width: var(--stamp-size);   /* Controlled by --stamp-size variable above */
   height: var(--stamp-size);  /* Controlled by --stamp-size variable above */
-  z-index: 5;
+  z-index: 15;     /* Higher than seal (10) - stamps always on top */
   transform: rotate(-15deg);  /* Tilt angle - change number to rotate more/less */
   opacity: 0.85;              /* Transparency - 0.0 to 1.0 */
   cursor: move;
@@ -199,7 +199,7 @@ header {
   right: 8%;       /* Adjust X position here */
   width: var(--stamp-size);
   height: var(--stamp-size);
-  z-index: 5;
+  z-index: 15;     /* Higher than seal (10) - stamps always on top */
   transform: rotate(22deg);
   opacity: 0.85;
   cursor: move;
@@ -221,7 +221,7 @@ header {
   left: 15%;       /* Adjust X position here */
   width: var(--stamp-size);
   height: var(--stamp-size);
-  z-index: 5;
+  z-index: 15;     /* Higher than seal (10) - stamps always on top */
   transform: rotate(-8deg);
   opacity: 0.85;
   cursor: move;
@@ -243,7 +243,7 @@ header {
   right: 34%;      /* Adjust X position here */
   width: var(--stamp-size);
   height: var(--stamp-size);
-  z-index: 5;
+  z-index: 15;     /* Higher than seal (10) - stamps always on top */
   transform: rotate(18deg);
   opacity: 0.85;
   cursor: move;
@@ -265,7 +265,7 @@ header {
   left: 5%;        /* Adjust X position here */
   width: var(--stamp-size);
   height: var(--stamp-size);
-  z-index: 5;
+  z-index: 15;     /* Higher than seal (10) - stamps always on top */
   transform: rotate(-25deg);
   opacity: 0.85;
   cursor: move;
@@ -313,7 +313,7 @@ p, p.lead {
   border-radius: 10px;
   padding: 18px;
   border: 1px solid rgba(0, 0, 0, 0.04);
-  margin-top: 60px;  /* ADD/INCREASE this to push puzzle down and reveal stamp_0 */
+  margin-top: 20px;  /* Reduced from 60px - brings puzzle area up closer to header */
 }
 
 .lines {
@@ -545,6 +545,17 @@ button.secondary:hover {
   margin: 0;
 }
 
+.volume-card .click-to-open {
+  font-family: 'TypewriterRustic', 'Roboto Slab', Georgia, serif;
+  font-size: 28px;
+  color: #b11226;
+  font-weight: 700;
+  margin: 12px 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 .volume-card .snowflake {
   font-size: 48px;
   animation: sparkle 1.5s ease-in-out infinite;
@@ -601,39 +612,37 @@ button.secondary:hover {
 }
 
 /* ============================================
-   WAX SEAL - Anchored/Glued to puzzle area
+   WAX SEAL - Anchored/Glued to panel corner
    ============================================
-   This seal is ANCHORED to the page - it scrolls with the content
+   This seal OVERLAPS the top-left corner of the panel - like a wax seal on an envelope
 
    Position Controls:
-   - top: Distance from top of page (scrolls with content)
-   - left: Distance from left of page (scrolls with content)
-   - position: absolute -> Anchored to page, scrolls with content
+   - Positioned so center of seal aligns with panel corner
+   - Part of seal is outside panel, part overlaps onto it
+   - top: Negative value = half of seal size (centers seal on corner vertically)
+   - left: Negative value = half of seal size (centers seal on corner horizontally)
+
+   Current seal size: 500px
+   - top: -250px (500px ÷ 2 = 250px) centers seal vertically on corner
+   - left: -250px (500px ÷ 2 = 250px) centers seal horizontally on corner
 
    Size Controls:
    - width/height: Uses --seal-size variable (change at top of file)
-   - To resize: Change --seal-size value in :root section above
+   - When changing seal size, adjust top/left to half the new size
 
    Visual Controls:
-   - z-index: 10 -> Appears above stamps (higher = more on top)
-   - filter: drop-shadow() -> Adds shadow for depth
-   - pointer-events: none -> Users can't click on it (passes through to content below)
+   - z-index: 10 -> Appears above background, below stamps
+   - pointer-events: none -> Clicks pass through to content below
 
-   Examples:
-   - Move seal up: Decrease top value (e.g., top: 150px;)
-   - Move seal down: Increase top value (e.g., top: 250px;)
-   - Move seal right: Increase left value (e.g., left: 100px;)
-   - Move seal left: Decrease left value (e.g., left: 20px;)
-   - Bigger shadow: filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.4));
-   - No shadow: filter: none;
-
-   Note: This seal is GLUED to the page and scrolls with it.
-   It stays in the same position relative to the puzzle area.
+   Examples to adjust overlap:
+   - More inside panel: Increase top/left (e.g., top: -200px; left: -200px;)
+   - More outside panel: Decrease top/left (e.g., top: -300px; left: -300px;)
+   - Perfect corner overlap: top/left = -(seal-size ÷ 2)
 */
 .wax-seal {
-  position: absolute;           /* Anchored to page - scrolls with content */
-  top: -50px;                   /* Distance from top of page */
-  left: 50px;                   /* Distance from left of page */
+  position: absolute;           /* Anchored to panel - scrolls with content */
+  top: -190px;                  /* CHANGE THIS to move seal UP/DOWN: increase = down, decrease = up */
+  left: -190px;                 /* CHANGE THIS to move seal LEFT/RIGHT: increase = right, decrease = left */
   width: var(--seal-size);      /* Controlled by --seal-size variable above */
   height: var(--seal-size);     /* Controlled by --seal-size variable above */
   z-index: 10;                  /* Layer order - higher appears on top */
@@ -656,6 +665,11 @@ footer {
    Responsive Design
    ======================================== */
 @media (max-width: 860px) {
+  :root {
+    --stamp-size: 80px;  /* Shrink stamps for medium screens */
+    --seal-size: 350px;  /* Shrink seal proportionally */
+  }
+
   .wrap {
     grid-template-columns: 1fr;
   }
@@ -673,6 +687,12 @@ footer {
   .stamp_0 {
     top: 150px;      /* Move stamp down slightly */
     left: 2%;        /* Move stamp closer to left edge */
+  }
+
+  /* Wax Seal - Keep overlapping corner on medium screens (seal size: 350px) */
+  .wax-seal {
+    top: -115px;     /* Moved down 30px more */
+    left: -115px;    /* Moved right 30px more */
   }
 
   .stamp_1 {
@@ -697,6 +717,11 @@ footer {
 }
 
 @media (max-width: 600px) {
+  :root {
+    --stamp-size: 60px;  /* Shrink stamps for small screens */
+    --seal-size: 250px;  /* Shrink seal proportionally */
+  }
+
   body {
     padding: 16px;
   }
@@ -844,6 +869,12 @@ footer {
     left: 1%;        /* Tighten to edge to save space */
   }
 
+  /* Wax Seal - Keep overlapping corner on small screens (seal size: 250px) */
+  .wax-seal {
+    top: -65px;      /* Moved down 30px more */
+    left: -65px;     /* Moved right 30px more */
+  }
+
   .stamp_1 {
     top: 8%;         /* Adjust Y position here */
     right: 2%;       /* Adjust X position here */
@@ -866,6 +897,11 @@ footer {
 }
 
 @media (max-width: 400px) {
+  :root {
+    --stamp-size: 50px;  /* Shrink stamps for extra small screens */
+    --seal-size: 180px;  /* Shrink seal proportionally */
+  }
+
   body {
     padding: 12px;
   }
@@ -909,6 +945,12 @@ footer {
   .stamp_0 {
     top: 100px;      /* Move higher to fit compact layout */
     left: 1%;        /* Keep tight to edge */
+  }
+
+  /* Wax Seal - Keep overlapping corner on extra small screens (seal size: 180px) */
+  .wax-seal {
+    top: -30px;      /* Moved down 30px more */
+    left: -30px;     /* Moved right 30px more */
   }
 
   .stamp_1 {

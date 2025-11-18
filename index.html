@@ -27,13 +27,13 @@
     <img src="assets/images/stamp_4.png" alt="Stamp 4" />
   </div>
 
-  <!-- Wax Seal - Fixed at puzzle area corner -->
-  <div class="wax-seal">
-    <img src="assets/images/wax-seal.png" alt="Wax Seal" />
-  </div>
-
   <div class="wrap">
     <div class="panel">
+      <!-- Wax Seal - Anchored to panel, tracks with it -->
+      <div class="wax-seal">
+        <img src="assets/images/wax-seal.png" alt="Wax Seal" />
+      </div>
+
       <header>
         <div class="logo"><img src="assets/images/stamp.png" alt="Santa's Stamp" /></div>
         <div>
@@ -73,13 +73,14 @@
     <div class="volume-card">
       <div class="snowflake">❄️</div>
       <h2>Turn Up Your Volume!</h2>
+      <p class="click-to-open">Click to Open</p>
       <div class="snowflake">❄️</div>
     </div>
   </div>
 
   <canvas class="snow" id="snowCanvas"></canvas>
   <audio id="flipSound" src="data:audio/wav;base64,UklGRjQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=" preload="auto"></audio>
-  <audio id="bgMusic" src="assets/music/santa anotherland final.mp3" loop preload="auto" autoplay muted></audio>
+  <audio id="bgMusic" src="assets/music/santa anotherland final.mp3" loop preload="auto"></audio>
 
   <script src="script.js"></script>
 </body>

@@ -1,6 +1,7 @@
 Fixes:
 
-* TODO Remove:
+* DONE Remove:
+CLOSED: [2025-11-17 Mon 22:06]
 Music turns on only when clicking pop up
 
 """
@@ -13,19 +14,30 @@ Clean HTML/CSS/JS structure”
 “Hosted on GitHub Pages – share the link!”
 """
 
-* TODO Add:
+* DONE Add:
+CLOSED: [2025-11-17 Mon 22:06]
 Add Stamp
 Overlays
 Add css to improve mobile support
 
-* TODO Modify
+* DONE Modify
+CLOSED: [2025-11-17 Mon 22:06]
 Change hex code
 
 * git commands
 git add . & git commit -m "{commit}" & git push origin main
 2025-11-16 04:49: git add . & git commit -m "Added mobile support and favicon and stamp" & git push origin main
 
-* TODOS 11:00 p.m. Nov 16 2025
+* DONE 11:00 p.m. Nov 16 2025
+CLOSED: [2025-11-17 Mon 22:07]
 
-* TODO Jonah will create stamps & layout
+* DONE Jonah will create stamps & layout
+CLOSED: [2025-11-17 Mon 22:06]
 make moveable stamps
+* <2025-11-17 Mon>
+** TODO Figure out which fonts go where.
+** TODO Integrate/improve dynamic sizing, come up with better CSS model (flexbox?)
+** TODO Enable click -> user enter website -> cue music
+** TODO Improve mobile interface
+** TODO Stamps can't disappear behind seal
+U-r-m-c-clinical-engineering-department-~
