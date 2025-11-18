@@ -7,6 +7,7 @@
   --accent: #b11226;
   --accent2: #1f5a6b;
   --paper: #fbf7ee;
+  --stamp-size: 100px;  /* Change this to adjust all stamp sizes */
 }
 
 /* ========================================
@@ -87,8 +88,8 @@ header {
   position: absolute;
   top: 95px;       /* Adjust Y position here */
   left: -10px;     /* Adjust X position here */
-  width: 100px;
-  height: 100px;
+  width: var(--stamp-size);
+  height: var(--stamp-size);
   z-index: 5;
   transform: rotate(-15deg);
   opacity: 0.85;
@@ -102,17 +103,18 @@ header {
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-/* Stamp 1 - Adjust X and Y position here */
+/* Stamp 1 - Adjust X and Y position here - DRAGGABLE */
 .stamp_1 {
-  position: fixed;
+  position: absolute;
   top: 18%;        /* Adjust Y position here */
   right: 8%;       /* Adjust X position here */
-  width: 100px;
-  height: 100px;
+  width: var(--stamp-size);
+  height: var(--stamp-size);
   z-index: 5;
   transform: rotate(22deg);
   opacity: 0.85;
-  pointer-events: none;
+  cursor: move;
+  user-select: none;
 }
 
 .stamp_1 img {
@@ -120,19 +122,21 @@ header {
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  pointer-events: none;
 }
 
-/* Stamp 2 - Adjust X and Y position here */
+/* Stamp 2 - Adjust X and Y position here - DRAGGABLE */
 .stamp_2 {
-  position: fixed;
+  position: absolute;
   bottom: 12%;     /* Adjust Y position here */
   left: 15%;       /* Adjust X position here */
-  width: 100px;
-  height: 100px;
+  width: var(--stamp-size);
+  height: var(--stamp-size);
   z-index: 5;
   transform: rotate(-8deg);
   opacity: 0.85;
-  pointer-events: none;
+  cursor: move;
+  user-select: none;
 }
 
 .stamp_2 img {
@@ -140,19 +144,21 @@ header {
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  pointer-events: none;
 }
 
-/* Stamp 3 - Adjust X and Y position here */
+/* Stamp 3 - Adjust X and Y position here - DRAGGABLE */
 .stamp_3 {
-  position: fixed;
+  position: absolute;
   bottom: 8%;      /* Adjust Y position here */
-  right: 12%;      /* Adjust X position here */
-  width: 100px;
-  height: 100px;
+  right: 34%;      /* Adjust X position here */
+  width: var(--stamp-size);
+  height: var(--stamp-size);
   z-index: 5;
   transform: rotate(18deg);
   opacity: 0.85;
-  pointer-events: none;
+  cursor: move;
+  user-select: none;
 }
 
 .stamp_3 img {
@@ -160,19 +166,21 @@ header {
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  pointer-events: none;
 }
 
-/* Stamp 4 - Adjust X and Y position here */
+/* Stamp 4 - Adjust X and Y position here - DRAGGABLE */
 .stamp_4 {
-  position: fixed;
+  position: absolute;
   top: 45%;        /* Adjust Y position here */
   left: 5%;        /* Adjust X position here */
-  width: 100px;
-  height: 100px;
+  width: var(--stamp-size);
+  height: var(--stamp-size);
   z-index: 5;
   transform: rotate(-25deg);
   opacity: 0.85;
-  pointer-events: none;
+  cursor: move;
+  user-select: none;
 }
 
 .stamp_4 img {
@@ -180,6 +188,7 @@ header {
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  pointer-events: none;
 }
 
 h1 {
@@ -501,6 +510,32 @@ footer {
   .side {
     order: -1;
   }
+
+  /* Adjust stamp positions for medium screens */
+  .stamp_0 {
+    top: 70px;       /* Adjust Y position here */
+    left: -5px;      /* Adjust X position here */
+  }
+
+  .stamp_1 {
+    top: 10%;        /* Adjust Y position here */
+    right: 5%;       /* Adjust X position here */
+  }
+
+  .stamp_2 {
+    bottom: 5%;      /* Adjust Y position here */
+    left: 10%;       /* Adjust X position here */
+  }
+
+  .stamp_3 {
+    bottom: 5%;      /* Adjust Y position here */
+    right: 8%;       /* Adjust X position here */
+  }
+
+  .stamp_4 {
+    top: 40%;        /* Adjust Y position here */
+    left: 2%;        /* Adjust X position here */
+  }
 }
 
 @media (max-width: 600px) {
@@ -639,6 +674,32 @@ footer {
     bottom: -18px;
     right: -18px;
   }
+
+  /* Adjust stamp positions for small screens */
+  .stamp_0 {
+    top: 60px;       /* Adjust Y position here */
+    left: -5px;      /* Adjust X position here */
+  }
+
+  .stamp_1 {
+    top: 8%;         /* Adjust Y position here */
+    right: 2%;       /* Adjust X position here */
+  }
+
+  .stamp_2 {
+    bottom: 3%;      /* Adjust Y position here */
+    left: 5%;        /* Adjust X position here */
+  }
+
+  .stamp_3 {
+    bottom: 3%;      /* Adjust Y position here */
+    right: 5%;       /* Adjust X position here */
+  }
+
+  .stamp_4 {
+    top: 35%;        /* Adjust Y position here */
+    left: 1%;        /* Adjust X position here */
+  }
 }
 
 @media (max-width: 400px) {
@@ -674,5 +735,29 @@ footer {
 
   .volume-card p {
     font-size: 16px;
+  }
+
+  /* Adjust stamp positions for extra small screens */
+  .stamp_0 {
+    display: none;   /* Hide on very small screens to prevent overlap */
+  }
+
+  .stamp_1 {
+    top: 5%;         /* Adjust Y position here */
+    right: 1%;       /* Adjust X position here */
+  }
+
+  .stamp_2 {
+    bottom: 2%;      /* Adjust Y position here */
+    left: 3%;        /* Adjust X position here */
+  }
+
+  .stamp_3 {
+    bottom: 2%;      /* Adjust Y position here */
+    right: 3%;       /* Adjust X position here */
+  }
+
+  .stamp_4 {
+    display: none;   /* Hide on very small screens to prevent overlap */
   }
 }

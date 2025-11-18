@@ -280,3 +280,91 @@ window.addEventListener('load', () => {
 //     volumeOverlay.style.display = 'none';
 //   }, 500);
 // });
+
+// ========================================
+// Draggable Stamps (stamps 1-4)
+// ========================================
+
+const draggableStamps = ['.stamp_1', '.stamp_2', '.stamp_3', '.stamp_4'];
+
+draggableStamps.forEach(selector => {
+  const stamp = document.querySelector(selector);
+  if (!stamp) return;
+
+  let isDragging = false;
+  let currentX;
+  let currentY;
+  let initialX;
+  let initialY;
+  let xOffset = 0;
+  let yOffset = 0;
+
+  stamp.addEventListener('mousedown', dragStart);
+  stamp.addEventListener('touchstart', dragStart);
+  document.addEventListener('mousemove', drag);
+  document.addEventListener('touchmove', drag);
+  document.addEventListener('mouseup', dragEnd);
+  document.addEventListener('touchend', dragEnd);
+
+  function dragStart(e) {
+    // Get the initial position
+    const rect = stamp.getBoundingClientRect();
+    const bodyRect = document.body.getBoundingClientRect();
+
+    if (e.type === 'touchstart') {
+      initialX = e.touches[0].clientX - xOffset;
+      initialY = e.touches[0].clientY - yOffset;
+    } else {
+      initialX = e.clientX - xOffset;
+      initialY = e.clientY - yOffset;
+    }
+
+    if (e.target === stamp || stamp.contains(e.target)) {
+      isDragging = true;
+      stamp.style.zIndex = 1000;
+    }
+  }
+
+  function drag(e) {
+    if (isDragging) {
+      e.preventDefault();
+
+      if (e.type === 'touchmove') {
+        currentX = e.touches[0].clientX - initialX;
+        currentY = e.touches[0].clientY - initialY;
+      } else {
+        currentX = e.clientX - initialX;
+        currentY = e.clientY - initialY;
+      }
+
+      xOffset = currentX;
+      yOffset = currentY;
+
+      // Get the current rotation from the transform
+      const computedStyle = window.getComputedStyle(stamp);
+      const transform = computedStyle.transform;
+      let rotation = '';
+
+      // Extract rotation if it exists
+      if (transform && transform !== 'none') {
+        const matrix = transform.match(/matrix.*\((.+)\)/);
+        if (matrix) {
+          const values = matrix[1].split(', ');
+          const a = parseFloat(values[0]);
+          const b = parseFloat(values[1]);
+          const angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+          rotation = ` rotate(${angle}deg)`;
+        }
+      }
+
+      stamp.style.transform = `translate(${currentX}px, ${currentY}px)${rotation}`;
+    }
+  }
+
+  function dragEnd(e) {
+    initialX = currentX;
+    initialY = currentY;
+    isDragging = false;
+    stamp.style.zIndex = 5;
+  }
+});
