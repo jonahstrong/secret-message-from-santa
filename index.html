@@ -11,6 +11,9 @@
 </head>
 <body>
   <!-- Decorative Stamps -->
+  <div class="stamp_0">
+    <img src="assets/images/stamp_0.png" alt="Stamp 0" />
+  </div>
   <div class="stamp_1">
     <img src="assets/images/stamp_1.png" alt="Stamp 1" />
   </div>
@@ -33,11 +36,6 @@
           <p class="lead">Click or tap numbers to reveal letters. Solve the whole puzzle to see Santa's special note.</p>
         </div>
       </header>
-
-      <!-- Stamp 0 - positioned at top left of puzzle area -->
-      <div class="stamp_0">
-        <img src="assets/images/stamp_0.png" alt="Stamp 0" />
-      </div>
 
       <div class="puzzle-area">
         <div class="lines" id="lines"></div>
@@ -76,7 +74,7 @@
 
   <canvas class="snow" id="snowCanvas"></canvas>
   <audio id="flipSound" src="data:audio/wav;base64,UklGRjQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=" preload="auto"></audio>
-  <audio id="bgMusic" src="assets/music/santa anotherland final.mp3" loop preload="auto"></audio>
+  <audio id="bgMusic" src="assets/music/santa anotherland final.mp3" loop preload="auto" autoplay muted></audio>
 
   <script src="script.js"></script>
 </body>

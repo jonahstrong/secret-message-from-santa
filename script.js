@@ -256,14 +256,24 @@ const volumeOverlay = document.getElementById('volumeOverlay');
 
 // Show volume overlay and play music on page load
 window.addEventListener('load', () => {
-  // Auto-play music after 2 second delay
+  // Unmute and ensure music plays after 1.5 second delay
   setTimeout(() => {
+    bgMusic.muted = false;
     bgMusic.play().catch(error => {
-      console.log('Auto-play prevented:', error);
+      console.log('Auto-play prevented by browser:', error);
+      // Fallback: try playing muted first, then unmute
+      bgMusic.muted = true;
+      bgMusic.play().then(() => {
+        setTimeout(() => {
+          bgMusic.muted = false;
+        }, 100);
+      }).catch(e => {
+        console.log('Playback failed:', e);
+      });
     });
-  }, 2000);
+  }, 1500);
 
-  // Show overlay for 3 seconds
+  // Hide overlay after 3 seconds regardless of music playback
   setTimeout(() => {
     volumeOverlay.style.animation = 'fadeIn 0.5s ease reverse';
     setTimeout(() => {
@@ -271,15 +281,6 @@ window.addEventListener('load', () => {
     }, 500);
   }, 3000);
 });
-
-// // Click overlay to dismiss and ensure music plays
-// volumeOverlay.addEventListener('click', () => {
-//   bgMusic.play().catch(e => console.log('Playback error:', e));
-//   volumeOverlay.style.animation = 'fadeIn 0.5s ease reverse';
-//   setTimeout(() => {
-//     volumeOverlay.style.display = 'none';
-//   }, 500);
-// });
 
 // ========================================
 // Draggable Stamps (stamps 1-4)

@@ -83,11 +83,11 @@ header {
 
 /* Decorative Stamps */
 
-/* Stamp 0 - Top left corner of puzzle area */
+/* Stamp 0 - Top left corner of puzzle area - FREELY POSITIONED */
 .stamp_0 {
   position: absolute;
-  top: 95px;       /* Adjust Y position here */
-  left: -10px;     /* Adjust X position here */
+  top: 200px;      /* Adjust Y position here */
+  left: 3%;        /* Adjust X position here */
   width: var(--stamp-size);
   height: var(--stamp-size);
   z-index: 5;
