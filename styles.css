@@ -93,6 +93,40 @@ body {
   overscroll-behavior-y: none; /* Prevent white space on overscroll */
 }
 
+/* Mobile-specific: lock background and prevent scrolling issues */
+@media (max-width: 600px) {
+  html {
+    overflow: hidden;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  body {
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    background-attachment: scroll;
+    padding: 0;
+  }
+
+  /* Fixed background layer - stays in place while content scrolls */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background: url('assets/images/santa.jpg') center center / cover no-repeat;
+    background-color: #b11226;
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
 /* ========================================
    Layout
    ======================================== */
@@ -739,12 +773,19 @@ footer {
   }
 
   body {
-    padding: 16px;
+    padding: 0;
   }
 
   .wrap {
     max-width: 100%;
-    gap: 16px;
+    width: 100%;
+    gap: 12px;
+    margin: 0;
+    padding: 12px;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    align-content: start;
   }
 
   .panel {
@@ -754,6 +795,10 @@ footer {
 
   header {
     gap: 12px;
+    padding-left: 0; /* Remove left padding on mobile */
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .logo {

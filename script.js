@@ -254,13 +254,24 @@ draw();
 const bgMusic = document.getElementById('bgMusic');
 const volumeOverlay = document.getElementById('volumeOverlay');
 
+// Detect if user is on mobile device
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+         window.innerWidth <= 600;
+}
+
 // Show volume overlay - Click to start music
 window.addEventListener('load', () => {
-  // Overlay stays visible until user clicks
-  // No auto-play - user must interact to start music
-
   // Scroll to top to ensure wax seal is visible
   window.scrollTo(0, 0);
+
+  // Auto-dismiss overlay on mobile devices
+  if (isMobileDevice()) {
+    setTimeout(() => {
+      volumeOverlay.style.display = 'none';
+    }, 100);
+  }
+  // On desktop, overlay stays visible until user clicks
 });
 
 // Click overlay to start music and enter site
