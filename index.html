@@ -70,7 +70,10 @@
 
   <!-- Volume notification overlay -->
   <div id="volumeOverlay" class="volume-overlay">
-    <img src="assets/images/new-enter-button.jpg" alt="Turn up your volume - click to enter" class="enter-button-image" />
+    <picture>
+      <source media="(max-width: 768px)" srcset="assets/images/mobile.jpg">
+      <img src="assets/images/new-enter-button.jpg" alt="Turn up your volume - click to enter" class="enter-button-image" />
+    </picture>
   </div>
 
   <canvas class="snow" id="snowCanvas"></canvas>

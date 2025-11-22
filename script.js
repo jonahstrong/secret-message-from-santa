@@ -298,9 +298,9 @@ draggableStamps.forEach(selector => {
   let yOffset = 0;
 
   stamp.addEventListener('mousedown', dragStart);
-  stamp.addEventListener('touchstart', dragStart);
+  stamp.addEventListener('touchstart', dragStart, { passive: false });
   document.addEventListener('mousemove', drag);
-  document.addEventListener('touchmove', drag);
+  document.addEventListener('touchmove', drag, { passive: false });
   document.addEventListener('mouseup', dragEnd);
   document.addEventListener('touchend', dragEnd);
 
@@ -320,6 +320,8 @@ draggableStamps.forEach(selector => {
     if (e.target === stamp || stamp.contains(e.target)) {
       isDragging = true;
       stamp.style.zIndex = 1000;
+      // Prevent default touch behavior (zoom, scroll) when starting drag
+      e.preventDefault();
     }
   }
 
