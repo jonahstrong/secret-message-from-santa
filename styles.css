@@ -933,8 +933,8 @@ footer {
 
   /* Wax Seal - Keep overlapping corner on small screens (seal size: 250px) */
   .wax-seal {
-    top: -65px;      /* Moved down 30px more */
-    left: -65px;     /* Moved right 30px more */
+    top: -125px;     /* Centers seal on corner (250px ÷ 2) */
+    left: -125px;    /* Centers seal on corner (250px ÷ 2) */
   }
 
   .stamp_1 {
@@ -1011,8 +1011,8 @@ footer {
 
   /* Wax Seal - Keep overlapping corner on extra small screens (seal size: 180px) */
   .wax-seal {
-    top: -30px;      /* Moved down 30px more */
-    left: -30px;     /* Moved right 30px more */
+    top: -90px;      /* Centers seal on corner (180px ÷ 2) */
+    left: -90px;     /* Centers seal on corner (180px ÷ 2) */
   }
 
   .stamp_1 {
