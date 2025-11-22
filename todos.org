@@ -41,3 +41,52 @@ make moveable stamps
 ** TODO Improve mobile interface
 ** TODO Stamps can't disappear behind seal
 U-r-m-c-clinical-engineering-department-~
+
+* GoDaddy Integration Plan
+** TODO Purchase or verify domain name on GoDaddy
+   - Choose and purchase a domain name for your Secret Message from Santa project
+   - Or verify you already own the domain you want to use
+
+** TODO Set up web hosting plan on GoDaddy (if not already done)
+   - Select an appropriate hosting plan (basic shared hosting should work fine)
+   - GoDaddy offers various tiers - choose one that fits your needs
+
+** TODO Obtain FTP/SFTP credentials from GoDaddy cPanel
+   - Log into your GoDaddy hosting account
+   - Access cPanel
+   - Navigate to FTP Accounts section
+   - Create or retrieve FTP/SFTP credentials (host, username, password, port)
+
+** TODO Upload all project files to GoDaddy via FTP or File Manager
+   - Connect to GoDaddy using FTP client (FileZilla, Cyberduck, etc.) or use cPanel File Manager
+   - Upload all files to the public_html directory (or appropriate subdirectory)
+   - Files to upload:
+     - index.html
+     - styles.css
+     - script.js
+     - assets/ folder (all images, fonts, etc.)
+
+** TODO Configure DNS settings to point domain to hosting
+   - Ensure domain DNS is pointing to your GoDaddy hosting server
+   - This is usually automatic if domain and hosting are both on GoDaddy
+   - If domain is elsewhere, update nameservers to point to GoDaddy
+
+** TODO Test deployed site and verify all assets load correctly
+   - Visit your domain in a browser
+   - Test all functionality:
+     - Envelope animations
+     - Image loading
+     - Button interactions
+     - Responsive design on mobile devices
+   - Check browser console for any errors
+
+** TODO Set up SSL certificate for HTTPS (GoDaddy provides free SSL)
+   - Access cPanel SSL/TLS section
+   - Install free SSL certificate (Let's Encrypt or GoDaddy SSL)
+   - Force HTTPS redirect if needed
+   - Verify site loads with https:// prefix
+
+** TODO Optional: Set up custom 404 error page
+   - Create custom 404.html page with Santa theme
+   - Configure .htaccess to use custom error page
+   - Test by visiting non-existent URL on your domain
