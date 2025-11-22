@@ -107,7 +107,7 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    background-attachment: scroll;
+    background: none; /* Remove background from body on mobile */
     padding: 0;
   }
 
@@ -122,6 +122,7 @@ body {
     height: 100dvh;
     background: url('assets/images/santa.jpg') center center / cover no-repeat;
     background-color: #b11226;
+    background-attachment: fixed; /* Ensure background stays fixed */
     z-index: -1;
     pointer-events: none;
   }

@@ -265,13 +265,7 @@ window.addEventListener('load', () => {
   // Scroll to top to ensure wax seal is visible
   window.scrollTo(0, 0);
 
-  // Auto-dismiss overlay on mobile devices
-  if (isMobileDevice()) {
-    setTimeout(() => {
-      volumeOverlay.style.display = 'none';
-    }, 100);
-  }
-  // On desktop, overlay stays visible until user clicks
+  // Overlay stays visible until user clicks (both mobile and desktop)
 });
 
 // Click overlay to start music and enter site
@@ -376,6 +370,6 @@ draggableStamps.forEach(selector => {
     initialX = currentX;
     initialY = currentY;
     isDragging = false;
-    stamp.style.zIndex = 5;
+    stamp.style.zIndex = 15; // Keep stamps above seal (seal is z-index 10)
   }
 });
